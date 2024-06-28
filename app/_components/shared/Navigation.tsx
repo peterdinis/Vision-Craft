@@ -2,6 +2,7 @@
 
 import { Label } from "@/components/ui/label";
 import { FC } from "react";
+import ThemeButton from "./ThemeButton";
 
 const Navigation: FC = () => {
   const servicesScroll = () => {
@@ -102,6 +103,11 @@ const Navigation: FC = () => {
                     Login
                   </span>
                 </a>
+                <span
+                  className="ml-6"
+                >
+                  <ThemeButton />
+                </span>
               </div>
             </div>
           </div>
