@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FC } from "react";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
 
 const HeroWrapper: FC = () => {
   return (
@@ -75,7 +74,7 @@ const HeroWrapper: FC = () => {
             <div className="mt-12 flex gap-6 lg:gap-12 justify-between grayscale dark:grayscale-0" />
           </div>
           <div className="overflow-hidden w-full lg:w-10/12 lg:-mr-16">
-            <Image
+            <img
               src="https://cdn3d.iconscout.com/3d/premium/thumb/product-development-2885458-2409426@0.png?f=webp"
               alt="project illustration"
               width={1200}
