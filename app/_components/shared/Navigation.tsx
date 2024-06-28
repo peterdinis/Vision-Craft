@@ -1,7 +1,21 @@
+"use client";
+
 import { Label } from "@/components/ui/label";
 import { FC } from "react";
 
 const Navigation: FC = () => {
+  const servicesScroll = () => {
+    const servicesSection = document.querySelector("#services") as unknown as HTMLElement;
+    servicesSection.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const pricingScroll = () => {
+    const pricingSection = document.querySelector(
+      "#pricing"
+    ) as unknown as HTMLElement;
+    pricingSection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header>
       <input
@@ -53,20 +67,20 @@ const Navigation: FC = () => {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
-                    >
-                      <span>About Vision-Craft</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
+                    <span
+                      onClick={servicesScroll}
                       className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
                     >
                       <span>Services</span>
-                    </a>
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      onClick={pricingScroll}
+                      className="block md:px-4 transition hover:text-primary dark:hover:text-primaryLight"
+                    >
+                      <span>Pricing</span>
+                    </span>
                   </li>
                 </ul>
               </div>
