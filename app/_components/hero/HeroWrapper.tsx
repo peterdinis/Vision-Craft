@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { FC } from "react";
 
 const HeroWrapper: FC = () => {
@@ -20,16 +21,21 @@ const HeroWrapper: FC = () => {
                         </div>
                         <input autoComplete="email" placeholder="Your mail address" className="w-full p-4 rounded-full placeholder-gray-600 dark:placeholder-white bg-transparent" type="email" />
                         <div className="md:pr-1.5 lg:pr-0">
-                            <button type="button" title="Start buying" className="relative h-12 w-20 sm:w-auto ml-auto sm:px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary dark:before:bg-primaryLight before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                            <Button type="button" title="Start buying" className="relative h-12 w-20 sm:w-auto ml-auto sm:px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary dark:before:bg-primaryLight before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
                                 <span className="relative hidden w-max text-white dark:text-gray-900 font-semibold md:block">
                                     Get Started
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="relative h-6 w-6 mx-auto text-white dark:text-gray-900 md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
-                            </button>
+                            </Button>
                         </div>
                     </div>
+                    <div className="mt-8">
+                            <Button variant="default">
+                                Create account
+                            </Button>
+                        </div>
                 </form>
             </div>
             <div className="mt-12 flex gap-6 lg:gap-12 justify-between grayscale dark:grayscale-0" />
