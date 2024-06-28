@@ -39,8 +39,8 @@ const HeroWrapper: FC = () => {
                 <img src="./images/clients/microsoft.svg" className="h-8 sm:h-10 w-auto lg:h-12" alt="" />
             </div>
         </div>
-        <div className="overflow-hidden w-full lg:w-7/12 lg:-mr-16">
-            <img src="images/project.svg" alt="project illustration" height="" width="" />
+        <div className="overflow-hidden w-full lg:w-10/12 lg:-mr-16">
+            <img src="https://cdn3d.iconscout.com/3d/premium/thumb/product-development-2885458-2409426@0.png?f=webp" alt="project illustration" height="" width="" />
         </div>
     </div>
 </div> 
