@@ -32,12 +32,7 @@ const HeroWrapper: FC = () => {
                     </div>
                 </form>
             </div>
-            <div className="mt-12 flex gap-6 lg:gap-12 justify-between grayscale dark:grayscale-0">
-                <img src="./images/clients/airbnb.svg" className="h-8 sm:h-10 w-auto lg:h-12" alt="" />
-                <img src="./images/clients/ge.svg" className="h-8 sm:h-10 w-auto lg:h-12" alt="" />
-                <img src="./images/clients/coty.svg" className="h-8 sm:h-10 w-auto lg:h-12" alt="" />
-                <img src="./images/clients/microsoft.svg" className="h-8 sm:h-10 w-auto lg:h-12" alt="" />
-            </div>
+            <div className="mt-12 flex gap-6 lg:gap-12 justify-between grayscale dark:grayscale-0" />
         </div>
         <div className="overflow-hidden w-full lg:w-10/12 lg:-mr-16">
             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/product-development-2885458-2409426@0.png?f=webp" alt="project illustration" height="" width="" />
