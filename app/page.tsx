@@ -10,11 +10,11 @@ const Homepage: NextPage = () => {
   return (
     <>
       <HeroWrapper />
-      <AboutHero />
+      {/* <AboutHero />
       <HeroServices />
       <InfiniteMovingCardsDemo />
       <HeroPricing />
-      <Footer />
+      <Footer /> */}
     </>
   );
 };
