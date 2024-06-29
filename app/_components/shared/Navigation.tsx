@@ -4,6 +4,7 @@ import { Label } from '@/components/ui/label';
 import { FC } from 'react';
 import ThemeButton from './ThemeButton';
 import { useSession } from 'next-auth/react';
+import ProfileDropdown from '../auth/ProfileDropdown';
 
 const Navigation: FC = () => {
     const servicesScroll = () => {
@@ -24,7 +25,6 @@ const Navigation: FC = () => {
 
     const loggedUser = session?.user?.email;
 
-    console.log('L', loggedUser);
     return (
         <header>
             <input
@@ -120,16 +120,7 @@ const Navigation: FC = () => {
                                         </a>
                                     </>
                                 ) : (
-                                    <>
-                                        <a
-                                            href='/profile'
-                                            className='dark:before:bg-primaryLight relative ml-auto flex h-9 items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:px-6'
-                                        >
-                                            <span className='relative text-sm font-semibold text-white dark:text-gray-900'>
-                                                {loggedUser}
-                                            </span>
-                                        </a>
-                                    </>
+                                    <ProfileDropdown />
                                 )}
                                 <span className='ml-6'>
                                     <ThemeButton />
