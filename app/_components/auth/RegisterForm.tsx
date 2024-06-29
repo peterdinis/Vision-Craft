@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -15,10 +14,12 @@ import { FC, useState, FormEvent } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/components/ui/use-toast';
+import { EyeOff, Eye } from 'lucide-react';
 
 const RegisterForm: FC = () => {
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
@@ -87,10 +88,19 @@ const RegisterForm: FC = () => {
                                 disabled={loading}
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 id='password'
                                 required
                             />
+                            <button
+									type="button"
+									// className="absolute inset-y-0 right-0 flex items-center px-4 bg-transparent text-gray-500 focus:outline-none"
+									onClick={() =>
+										setShowPassword(!showPassword)
+									}
+								>
+									{showPassword ? <Eye /> : <EyeOff />}
+								</button>
                         </div>
                     </CardContent>
                     <CardFooter>
