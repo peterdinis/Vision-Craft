@@ -5,7 +5,6 @@ import {
     Card,
     CardHeader,
     CardTitle,
-    CardDescription,
     CardContent,
     CardFooter,
 } from '@/components/ui/card';
@@ -15,10 +14,12 @@ import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { useToast } from '@/components/ui/use-toast';
+import { EyeOff, Eye } from 'lucide-react';
 
 const LoginForm: FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const { toast } = useToast();
@@ -76,18 +77,28 @@ const LoginForm: FC = () => {
                                 value={email}
                             />
                         </div>
-                        <div className='grid gap-2'>
+                        <div className='grid gap-2 relative'>
                             <Label htmlFor='password'>Password</Label>
                             <Input
                                 disabled={loading}
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
-                                type='password'
+                                type={showPassword ? "text" : "password"}
+                                id='password'
                             />
+                            <button
+                                type="button"
+                                className="absolute right-2 top-1/2 mt-3 transform -translate-y-1/2"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <Eye /> : <EyeOff />}
+                            </button>
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <Button className='w-full'>Sign in</Button>
+                        <Button className='w-full' disabled={loading}>
+                            {loading ? 'Signing in...' : 'Sign in'}
+                        </Button>
                     </CardFooter>
                 </form>
             </Card>
