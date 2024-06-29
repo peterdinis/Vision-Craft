@@ -82,7 +82,7 @@ const RegisterForm: FC = () => {
                                 disabled={loading}
                             />
                         </div>
-                        <div className='grid gap-2'>
+                        <div className='grid gap-2 relative'>
                             <Label htmlFor='password'>Password</Label>
                             <Input
                                 disabled={loading}
@@ -93,18 +93,18 @@ const RegisterForm: FC = () => {
                                 required
                             />
                             <button
-									type="button"
-									// className="absolute inset-y-0 right-0 flex items-center px-4 bg-transparent text-gray-500 focus:outline-none"
-									onClick={() =>
-										setShowPassword(!showPassword)
-									}
-								>
-									{showPassword ? <Eye /> : <EyeOff />}
-								</button>
+                                type="button"
+                                className="absolute right-2 top-1/2 mt-3 transform -translate-y-1/2"
+                                onClick={() =>
+                                    setShowPassword(!showPassword)
+                                }
+                            >
+                                {showPassword ? <Eye /> : <EyeOff />}
+                            </button>
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <Button className='w-full'>Sign in</Button>
+                        <Button className='w-full' disabled={loading}>{loading ? 'Signing in...' : 'Sign in'}</Button>
                     </CardFooter>
                 </form>
             </Card>
