@@ -3,6 +3,8 @@
 import { Label } from '@/components/ui/label';
 import { FC } from 'react';
 import ThemeButton from './ThemeButton';
+import { useSession } from 'next-auth/react';
+import ProfileDropdown from '../auth/ProfileDropdown';
 
 const Navigation: FC = () => {
     const servicesScroll = () => {
@@ -18,6 +20,10 @@ const Navigation: FC = () => {
         ) as unknown as HTMLElement;
         pricingSection.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const { data: session } = useSession();
+
+    const loggedUser = session?.user?.email;
 
     return (
         <header>
@@ -94,22 +100,28 @@ const Navigation: FC = () => {
                             </div>
 
                             <div className='-ml-1 flex w-full flex-col space-y-2 border-primary/10 dark:border-gray-700 sm:flex-row md:w-max lg:space-y-0 lg:border-l'>
-                                <a
-                                    href='/register'
-                                    className='dark:focus:before:bg-primaryLight/10 relative ml-auto flex h-9 items-center justify-center before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 focus:before:bg-primary/10 active:duration-75 active:before:scale-95 sm:px-6'
-                                >
-                                    <span className='dark:text-primaryLight relative text-sm font-semibold text-primary'>
-                                        Sign Up
-                                    </span>
-                                </a>
-                                <a
-                                    href='/login'
-                                    className='dark:before:bg-primaryLight relative ml-auto flex h-9 items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:px-6'
-                                >
-                                    <span className='relative text-sm font-semibold text-white dark:text-gray-900'>
-                                        Login
-                                    </span>
-                                </a>
+                                {!loggedUser ? (
+                                    <>
+                                        <a
+                                            href='/register'
+                                            className='dark:focus:before:bg-primaryLight/10 relative ml-auto flex h-9 items-center justify-center before:absolute before:inset-0 before:rounded-full before:transition before:duration-300 hover:before:scale-105 focus:before:bg-primary/10 active:duration-75 active:before:scale-95 sm:px-6'
+                                        >
+                                            <span className='dark:text-primaryLight relative text-sm font-semibold text-primary'>
+                                                Sign Up
+                                            </span>
+                                        </a>
+                                        <a
+                                            href='/login'
+                                            className='dark:before:bg-primaryLight relative ml-auto flex h-9 items-center justify-center before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:px-6'
+                                        >
+                                            <span className='relative text-sm font-semibold text-white dark:text-gray-900'>
+                                                Login
+                                            </span>
+                                        </a>
+                                    </>
+                                ) : (
+                                    <ProfileDropdown />
+                                )}
                                 <span className='ml-6'>
                                     <ThemeButton />
                                 </span>

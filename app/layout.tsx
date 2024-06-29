@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Toaster } from "@/components/ui/toaster"
 import Navigation from './_components/shared/Navigation';
 import ThemeProvider from './_components/shared/providers/ThemeProvider';
 import SessionAppProvider from './_components/shared/providers/SessionProvider';
@@ -24,6 +25,7 @@ export default function RootLayout({
                     <SessionAppProvider>
                         <Navigation />
                         {children}
+                        <Toaster />
                     </SessionAppProvider>
                 </ThemeProvider>
             </body>
