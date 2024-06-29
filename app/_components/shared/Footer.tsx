@@ -1,7 +1,7 @@
 "use client"
 
-import { Label } from "@/components/ui/label";
-import { FC } from "react";
+import { Label } from '@/components/ui/label';
+import { FC } from 'react';
 
 const Footer: FC = () => {
   const servicesScroll = () => {
