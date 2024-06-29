@@ -19,7 +19,7 @@ const Sidebar: FC = () => {
                     true,
             })}
         >
-            <div className='bg-gray-200 text-black dark:bg-zinc-800 dark:text-white'>
+            <div className='bg-zinc-50 text-black dark:bg-zinc-800 dark:text-white'>
                 <button onClick={() => setSidebarCollapsed((prev) => !prev)}>
                     {collapsed === true ? (
                         <Menu className='h-7 w-7' />
@@ -29,9 +29,6 @@ const Sidebar: FC = () => {
                 </button>
                 {collapsed === false ? (
                     <>
-                        <span className='prose ml-6 mt-6 flex text-xl font-bold dark:text-white'>
-                            Paper Company s.r.o.
-                        </span>
                         <div>
                             <SidebarLink
                                 icon={<Settings />}
