@@ -1,11 +1,8 @@
 import { NextPage } from "next";
+import DashboardContent from "../_components/dashboard/DashboardContent";
 
 const DashboardPage: NextPage = () =>{
-    return (
-        <>
-rrrrrrrr
-        </>
-    )
+    return <DashboardContent />
 }
 
 export default DashboardPage
