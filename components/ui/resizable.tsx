@@ -1,9 +1,9 @@
 "use client"
 
-import { DragHandleDots2Icon } from "@radix-ui/react-icons"
-import * as ResizablePrimitive from "react-resizable-panels"
+import { DragHandleDots2Icon } from "@radix-ui/react-icons";
+import * as ResizablePrimitive from "react-resizable-panels";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const ResizablePanelGroup = ({
   className,
@@ -16,16 +16,29 @@ const ResizablePanelGroup = ({
     )}
     {...props}
   />
-)
+);
 
-const ResizablePanel = ResizablePrimitive.Panel
+const ResizablePanel = ({
+  minSize,
+  maxSize,
+  ...props
+}: React.ComponentProps<typeof ResizablePrimitive.Panel> & {
+  minSize?: number;
+  maxSize?: number;
+}) => (
+  <ResizablePrimitive.Panel
+    {...props}
+    minSize={minSize}
+    maxSize={maxSize}
+  />
+);
 
 const ResizableHandle = ({
   withHandle,
   className,
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
-  withHandle?: boolean
+  withHandle?: boolean;
 }) => (
   <ResizablePrimitive.PanelResizeHandle
     className={cn(
@@ -40,6 +53,6 @@ const ResizableHandle = ({
       </div>
     )}
   </ResizablePrimitive.PanelResizeHandle>
-)
+);
 
-export { ResizablePanelGroup, ResizablePanel, ResizableHandle }
+export { ResizablePanelGroup, ResizablePanel, ResizableHandle };
