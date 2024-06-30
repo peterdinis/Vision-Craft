@@ -28,7 +28,10 @@ const CodeDialogPreview: FC = () => {
                                 className='mt-5'
                                 value={code}
                                 height='100px'
+                                autoFocus={true}
+                                autoSave={"true"}
                                 theme={vscodeDark}
+                                editable={true}
                             />
                         </DialogDescription>
                     </DialogHeader>
