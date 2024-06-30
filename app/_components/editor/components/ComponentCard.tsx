@@ -1,5 +1,3 @@
-"use client"
-
 import { FC } from 'react';
 import { CardHeader, Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,14 +7,14 @@ interface IComponentCardProps {
     header: string;
 }
 
-const ComponentCard: FC<IComponentCardProps> = ({ header }: IComponentCardProps) => {
+const ComponentCard: FC<IComponentCardProps> = ({ header }) => {
     const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-        id: header, // Unique identifier for the draggable item
+        id: header,
     });
 
     const style = {
-        transform: `translate3d(${2}px, ${2}px, 0)`,
-        opacity: isDragging ? 0.5 : 1, // Reduce opacity when dragging
+        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : 'none',
+        opacity: isDragging ? 0.5 : 1,
     };
 
     return (

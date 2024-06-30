@@ -1,5 +1,3 @@
-"use client"
-
 import { FC, useState } from 'react';
 import { DndContext, useDraggable, useDroppable } from '@dnd-kit/core';
 import { Button } from '@/components/ui/button';
