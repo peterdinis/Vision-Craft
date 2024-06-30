@@ -1,9 +1,10 @@
 import { FC } from "react";
+import EditorResize from "./EditorResize";
 
 const EditorWrapper: FC = () => {
     return (
         <>
-        rrr
+            <EditorResize />
         </>
     )
 }
