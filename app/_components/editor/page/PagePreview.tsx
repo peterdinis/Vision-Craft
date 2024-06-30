@@ -1,6 +1,5 @@
 import { FC, useState } from 'react';
 import { DndContext, useDroppable } from '@dnd-kit/core';
-import { Button } from '@/components/ui/button';
 import CodeDialogPreview from "../code/CodeDialogPreview";
 
 const PagePreview: FC = () => {
@@ -29,9 +28,7 @@ const PagePreview: FC = () => {
 	return (
 		<div className="flex w-full h-full">
             <div className="float-right">
-                <Button onClick={displayCodePreview} variant={"ghost"}>
-                    Code preview
-                </Button>
+                <CodeDialogPreview />
             </div>
 			<div className="p-4 mt-10 w-full flex justify-center align-top">
 				DROP HERE
