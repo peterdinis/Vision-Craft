@@ -13,6 +13,15 @@ const EditorComponentsList: FC = () =>{
             <ComponentCard header="Paragaph" />
             <ComponentCard header="Link" />
             <ComponentCard header="Nav" />
+            <ComponentCard header="Paragaph" />
+            <ComponentCard header="Link" />
+            <ComponentCard header="Nav" />
+            <ComponentCard header="Paragaph" />
+            <ComponentCard header="Link" />
+            <ComponentCard header="Nav" />
+            <ComponentCard header="Paragaph" />
+            <ComponentCard header="Link" />
+            <ComponentCard header="Nav" />
         </div>
     )
 }
