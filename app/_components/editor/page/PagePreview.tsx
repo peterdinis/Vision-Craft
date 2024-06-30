@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import { DndContext, useDraggable, useDroppable } from '@dnd-kit/core';
+import { DndContext, useDroppable } from '@dnd-kit/core';
 import { Button } from '@/components/ui/button';
 
 const PagePreview: FC = () => {
-    const [components, setComponents] = useState<any[]>([]);
+    const [components, setComponents] = useState<string[]>([]);
 
     const { isOver, setNodeRef } = useDroppable({
         id: 'drop-area',
@@ -26,12 +26,14 @@ const PagePreview: FC = () => {
     };
 
     return (
-        <DndContext onDragEnd={(event) => {
-            const { over, active } = event;
-            if (over && over.id === 'drop-area') {
-                setComponents((prev) => [...prev, active.id]);
-            }
-        }}>
+        <DndContext
+            onDragEnd={(event) => {
+                const { over, active } = event;
+                if (over && over.id === 'drop-area') {
+                    setComponents((prev) => [...prev, active.id as string]);
+                }
+            }}
+        >
             <div className="flex w-full h-full">
                 <div className="float-right">
                     <Button onClick={displayCodePreview} variant={"ghost"}>
