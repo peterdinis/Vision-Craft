@@ -5,6 +5,7 @@ import { FC } from 'react';
 import ThemeButton from './ThemeButton';
 import { useSession } from 'next-auth/react';
 import ProfileDropdown from '../auth/ProfileDropdown';
+import Link from 'next/link';
 
 const Navigation: FC = () => {
     const servicesScroll = () => {
@@ -72,30 +73,42 @@ const Navigation: FC = () => {
                         <div className='navmenu mb-16 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-gray-100 bg-white p-6 shadow-2xl shadow-gray-300/20 dark:border-gray-700 dark:bg-gray-800 dark:shadow-none md:flex-nowrap lg:m-0 lg:flex lg:w-7/12 lg:space-y-0 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none'>
                             <div className='text-gray-600 dark:text-gray-300 lg:pr-4'>
                                 <ul className='space-y-6 text-base font-medium tracking-wide lg:flex lg:space-y-0 lg:text-sm'>
-                                    <li>
-                                        <a
-                                            href='/'
-                                            className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'
-                                        >
-                                            <span>Home</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <span
-                                            onClick={servicesScroll}
-                                            className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'
-                                        >
-                                            <span>Services</span>
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span
-                                            onClick={pricingScroll}
-                                            className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'
-                                        >
-                                            <span>Pricing</span>
-                                        </span>
-                                    </li>
+                                    {!loggedUser ? (
+                                        <>
+                                            <li>
+                                                <Link
+                                                    href='/'
+                                                    className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'
+                                                >
+                                                    <span>Home</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <span
+                                                    onClick={servicesScroll}
+                                                    className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'
+                                                >
+                                                    <span>Services</span>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span
+                                                    onClick={pricingScroll}
+                                                    className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'
+                                                >
+                                                    <span>Pricing</span>
+                                                </span>
+                                            </li>
+                                        </>
+                                    ) : (
+                                        <li>
+                                            <span className='dark:hover:text-primaryLight block transition hover:text-primary md:px-4'>
+                                                <Link href='/dashboard'>
+                                                    Dashboard
+                                                </Link>
+                                            </span>
+                                        </li>
+                                    )}
                                 </ul>
                             </div>
 
