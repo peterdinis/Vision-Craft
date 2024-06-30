@@ -16,6 +16,20 @@ var CodeDialogPreview = function () {
                     React.createElement(dialog_1.DialogTitle, null,
                         React.createElement(Header_1["default"], { text: 'Code Preview' })),
                     React.createElement(dialog_1.DialogDescription, null,
-                        React.createElement(react_codemirror_1["default"], { className: 'mt-5', value: code, height: '100px', autoFocus: true, autoSave: 'true', theme: codemirror_theme_vscode_1.vscodeDark, editable: true, extensions: [codemirror_extensions_color_1.colorView(false), codemirror_extensions_color_1.colorTheme, codemirror_extensions_zebra_stripes_1.zebraStripes({ step: 2 })] })))))));
+                        React.createElement(react_codemirror_1["default"], { className: 'mt-5', value: code, height: '100px', autoFocus: true, basicSetup: {
+                                foldGutter: true,
+                                dropCursor: true,
+                                allowMultipleSelections: true,
+                                indentOnInput: true,
+                                autocompletion: true,
+                                searchKeymap: true,
+                                bracketMatching: true,
+                                closeBrackets: true,
+                                highlightActiveLine: true
+                            }, autoSave: 'true', theme: codemirror_theme_vscode_1.vscodeDark, editable: true, extensions: [
+                                codemirror_extensions_color_1.colorView(true),
+                                codemirror_extensions_color_1.colorTheme,
+                                codemirror_extensions_zebra_stripes_1.zebraStripes({ step: 2 }),
+                            ] })))))));
 };
 exports["default"] = CodeDialogPreview;

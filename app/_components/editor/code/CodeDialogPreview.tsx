@@ -10,7 +10,7 @@ import { FC } from 'react';
 import Header from '../../shared/Header';
 import CodeMirror from '@uiw/react-codemirror';
 import { vscodeDark } from '@uiw/codemirror-theme-vscode';
-import {  colorView, colorTheme } from '@uiw/codemirror-extensions-color';
+import { colorView, colorTheme } from '@uiw/codemirror-extensions-color';
 import { zebraStripes } from '@uiw/codemirror-extensions-zebra-stripes';
 
 const CodeDialogPreview: FC = () => {
@@ -31,10 +31,25 @@ const CodeDialogPreview: FC = () => {
                                 value={code}
                                 height='100px'
                                 autoFocus={true}
+                                basicSetup={{
+                                    foldGutter: true,
+                                    dropCursor: true,
+                                    allowMultipleSelections: true,
+                                    indentOnInput: true,
+                                    autocompletion: true,
+                                    searchKeymap: true,
+                                    bracketMatching: true,
+                                    closeBrackets: true,
+                                    highlightActiveLine: true,
+                                }}
                                 autoSave={'true'}
                                 theme={vscodeDark}
                                 editable={true}
-                                extensions={[colorView(false), colorTheme, zebraStripes({step: 2})]}
+                                extensions={[
+                                    colorView(true),
+                                    colorTheme,
+                                    zebraStripes({ step: 2 }),
+                                ]}
                             />
                         </DialogDescription>
                     </DialogHeader>
