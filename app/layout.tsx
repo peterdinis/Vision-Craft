@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 import Navigation from './_components/shared/Navigation';
 import ThemeProvider from './_components/shared/providers/ThemeProvider';
 import SessionAppProvider from './_components/shared/providers/SessionProvider';
+import ScrollToTopProvider from './_components/shared/providers/ScrollToTopProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
                         <Navigation />
                         {children}
                         <Toaster />
+                        <ScrollToTopProvider />
                     </SessionAppProvider>
                 </ThemeProvider>
             </body>
