@@ -1,22 +1,15 @@
 "use client"
 
 import { FC, useState } from 'react';
-import { DndContext, useDroppable } from '@dnd-kit/core';
+import { DndContext, useDraggable, useDroppable } from '@dnd-kit/core';
 import { Button } from '@/components/ui/button';
 
 const PagePreview: FC = () => {
-    const [components, setComponents] = useState<string[]>([]);
+    const [components, setComponents] = useState<any[]>([]);
 
-    const { setNodeRef } = useDroppable({
-        id: 'droppable',
+    const { isOver, setNodeRef } = useDroppable({
+        id: 'drop-area',
     });
-
-    const handleDragEnd = (event: any) => {
-        const { over, active } = event;
-        if (over && over.id === 'droppable') {
-            setComponents((prev) => [...prev, active.id]);
-        }
-    };
 
     const displayCodePreview = () => {
         const generatedHtml = components.map((component, index) => {
@@ -35,15 +28,31 @@ const PagePreview: FC = () => {
     };
 
     return (
-        <DndContext onDragEnd={handleDragEnd}>
+        <DndContext onDragEnd={(event) => {
+            const { over, active } = event;
+            if (over && over.id === 'drop-area') {
+                setComponents((prev) => [...prev, active.id]);
+            }
+        }}>
             <div className="flex w-full h-full">
                 <div className="float-right">
                     <Button onClick={displayCodePreview} variant={"ghost"}>
                         Code preview
                     </Button>
                 </div>
-                <div className="p-4 mt-10 w-full flex justify-center align-top" ref={setNodeRef}>
-                    DROP HERE
+                <div className={`p-4 mt-10 w-full flex justify-center align-top ${isOver ? 'bg-gray-200' : ''}`} ref={setNodeRef}>
+                    {components.map((component, index) => {
+                        switch (component) {
+                            case 'Paragraph':
+                                return <p key={index}>This is a paragraph</p>;
+                            case 'Link':
+                                return <a key={index} href="#">This is a link</a>;
+                            case 'Nav':
+                                return <nav key={index}>This is a nav</nav>;
+                            default:
+                                return null;
+                        }
+                    })}
                 </div>
             </div>
         </DndContext>

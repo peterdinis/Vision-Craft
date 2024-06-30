@@ -10,13 +10,14 @@ interface IComponentCardProps {
 }
 
 const ComponentCard: FC<IComponentCardProps> = ({ header }: IComponentCardProps) => {
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
         id: header, // Unique identifier for the draggable item
     });
 
-    const style = transform ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-    } : undefined;
+    const style = {
+        transform: `translate3d(${2}px, ${2}px, 0)`,
+        opacity: isDragging ? 0.5 : 1, // Reduce opacity when dragging
+    };
 
     return (
         <Card ref={setNodeRef} style={style} {...listeners} {...attributes}>
