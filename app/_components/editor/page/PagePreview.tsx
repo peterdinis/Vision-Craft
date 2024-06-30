@@ -1,19 +1,20 @@
-"use client"
-
-import { useDroppable } from "@dnd-kit/core";
 import type { FC } from "react";
+import { Button } from "@/components/ui/button";
 
 const PagePreview: FC = () => {
-	const droppable = useDroppable({
-		id: "editor-preview",
-		data: {
-			isDesignerDropArea: true,
-		},
-	});
+
+    const displayCodePreview = () => {
+        console.log("DO NOTHING")
+    }
 
 	return (
 		<div className="flex w-full h-full">
-			<div className="p-4 w-full flex justify-center align-top">
+            <div className="float-right">
+                <Button onClick={displayCodePreview} variant={"ghost"}>
+                    Code preview
+                </Button>
+            </div>
+			<div className="p-4 mt-10 w-full flex justify-center align-top">
 				DROP HERE
 			</div>
 		</div>
