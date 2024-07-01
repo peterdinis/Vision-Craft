@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -82,29 +82,29 @@ const RegisterForm: FC = () => {
                                 disabled={loading}
                             />
                         </div>
-                        <div className='grid gap-2 relative'>
+                        <div className='relative grid gap-2'>
                             <Label htmlFor='password'>Password</Label>
                             <Input
                                 disabled={loading}
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
-                                type={showPassword ? "text" : "password"}
+                                type={showPassword ? 'text' : 'password'}
                                 id='password'
                                 required
                             />
                             <button
-                                type="button"
-                                className="absolute right-2 top-1/2 mt-3 transform -translate-y-1/2"
-                                onClick={() =>
-                                    setShowPassword(!showPassword)
-                                }
+                                type='button'
+                                className='absolute right-2 top-1/2 mt-3 -translate-y-1/2 transform'
+                                onClick={() => setShowPassword(!showPassword)}
                             >
                                 {showPassword ? <Eye /> : <EyeOff />}
                             </button>
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <Button className='w-full' disabled={loading}>{loading ? 'Signing in...' : 'Sign in'}</Button>
+                        <Button className='w-full' disabled={loading}>
+                            {loading ? 'Signing in...' : 'Sign in'}
+                        </Button>
                     </CardFooter>
                 </form>
             </Card>

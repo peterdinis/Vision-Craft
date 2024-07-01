@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import { ChangeEvent, FC, useState } from 'react';
 import {
@@ -48,7 +48,7 @@ const EditorResize: FC = () => {
                 <Button variant='default'>Save</Button>
             </div>
 
-            <div className='flex w-full justify-between gap-2 mt-5'>
+            <div className='mt-5 flex w-full justify-between gap-2'>
                 <ResizablePanelGroup direction='horizontal'>
                     <ResizablePanel minSize={20} maxSize={80}>
                         <EditorComponents />

@@ -1,6 +1,3 @@
 {
-    "css.customData": [
-        ".vscode/tailwind.json"
-    ],
-    "compile-hero.disable-compile-files-on-did-save-code": false
+    "css.customData": [".vscode/tailwind.json"],
 }

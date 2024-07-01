@@ -77,18 +77,18 @@ const LoginForm: FC = () => {
                                 value={email}
                             />
                         </div>
-                        <div className='grid gap-2 relative'>
+                        <div className='relative grid gap-2'>
                             <Label htmlFor='password'>Password</Label>
                             <Input
                                 disabled={loading}
                                 onChange={(e) => setPassword(e.target.value)}
                                 value={password}
-                                type={showPassword ? "text" : "password"}
+                                type={showPassword ? 'text' : 'password'}
                                 id='password'
                             />
                             <button
-                                type="button"
-                                className="absolute right-2 top-1/2 mt-3 transform -translate-y-1/2"
+                                type='button'
+                                className='absolute right-2 top-1/2 mt-3 -translate-y-1/2 transform'
                                 onClick={() => setShowPassword(!showPassword)}
                             >
                                 {showPassword ? <Eye /> : <EyeOff />}
