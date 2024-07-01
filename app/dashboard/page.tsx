@@ -1,8 +1,8 @@
-import { NextPage } from "next";
-import DashboardContent from "../_components/dashboard/DashboardContent";
+import { NextPage } from 'next';
+import DashboardContent from '../_components/dashboard/DashboardContent';
 
-const DashboardPage: NextPage = () =>{
-    return <DashboardContent />
-}
+const DashboardPage: NextPage = () => {
+    return <DashboardContent />;
+};
 
-export default DashboardPage
+export default DashboardPage;
