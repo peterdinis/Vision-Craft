@@ -6,6 +6,7 @@ import Navigation from './_components/shared/Navigation';
 import ThemeProvider from './_components/shared/providers/ThemeProvider';
 import SessionAppProvider from './_components/shared/providers/SessionProvider';
 import ScrollToTopProvider from './_components/shared/providers/ScrollToTopProvider';
+import QueryProvider from './_components/shared/providers/QueryProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,7 +26,9 @@ export default function RootLayout({
                 <ThemeProvider attribute='class'>
                     <SessionAppProvider>
                         <Navigation />
+                        <QueryProvider>
                         {children}
+                        </QueryProvider>
                         <Toaster />
                         <ScrollToTopProvider />
                     </SessionAppProvider>
