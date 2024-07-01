@@ -25,6 +25,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-tooltip": "^1.1.2",
     "@tanstack/react-query": "^5.49.2",
+    "@tanstack/react-query-devtools": "^5.49.2",
     "@tanstack/react-table": "^8.17.3",
     "@uiw/codemirror-extensions-color": "^4.22.2",
     "@uiw/codemirror-extensions-zebra-stripes": "^4.22.2",
