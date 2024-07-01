@@ -13,6 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum AccountState {
+  CREATED
+  STARTER
+}
+
 model Account {
   id                String  @id @default(uuid())
   userId            String
@@ -48,6 +53,7 @@ model User {
   sessions      Session[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  accountState  AccountState @default(CREATED)
 }
 
 model VerificationToken {
